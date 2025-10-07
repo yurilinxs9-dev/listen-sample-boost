@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroVideo from "@/assets/hero-video.mp4";
+import heroDevices from "@/assets/hero-devices.png";
 
 const Hero = () => {
   const scrollToOffer = () => {
@@ -10,25 +10,14 @@ const Hero = () => {
     <section className="relative bg-gradient-to-b from-white to-gray-50 py-20">
       <div className="container px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-          {/* Left Side - Interactive Video */}
+          {/* Left Side - Devices Mockup */}
           <div className="relative">
             <div className="relative z-10">
-              <video 
-                src={heroVideo}
-                controls
-                className="w-full rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
-                poster="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=800&h=1000&fit=crop"
-              >
-                Seu navegador não suporta vídeos HTML5.
-              </video>
-              {/* Decorative Badge */}
-              <div className="absolute -top-4 -right-4 bg-primary text-white rounded-full w-24 h-24 flex items-center justify-center shadow-lg transform rotate-12">
-                <div className="text-center">
-                  <div className="text-xs font-semibold">BEST</div>
-                  <div className="text-lg font-bold">200+</div>
-                  <div className="text-xs">ÁUDIOS</div>
-                </div>
-              </div>
+              <img 
+                src={heroDevices}
+                alt="Audiobooks em tablet e smartphone"
+                className="w-full"
+              />
             </div>
           </div>
 
