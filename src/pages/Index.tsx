@@ -1,12 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import CategoryCarousel from "@/components/CategoryCarousel";
+import Testimonials from "@/components/Testimonials";
+import Benefits from "@/components/Benefits";
+import Offer from "@/components/Offer";
+import Footer from "@/components/Footer";
+import { categories } from "@/data/audiobooks";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Header />
+      
+      <main className="pt-16">
+        <Hero />
+        
+        <section id="categorias" className="py-12 space-y-12">
+          <div className="container px-4">
+            {categories.map((category) => (
+              <CategoryCarousel
+                key={category.name}
+                title={category.name}
+                audiobooks={category.books}
+              />
+            ))}
+          </div>
+        </section>
+
+        <Testimonials />
+        
+        <Benefits />
+        
+        <Offer />
+      </main>
+
+      <Footer />
     </div>
   );
 };
