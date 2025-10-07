@@ -6,13 +6,7 @@ import { audiobooks } from "@/data/audiobooks";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
 
-const categories = [
-  { name: "Finanças", books: audiobooks.filter(b => ["Pai Rico, Pai Pobre", "O Poder do Hábito", "Quem Pensa Enriquece"].includes(b.title)) },
-  { name: "Investimentos", books: audiobooks.filter(b => ["A Psicologia Financeira", "Os Segredos da Mente Milionária"].includes(b.title)) },
-  { name: "Autoajuda", books: audiobooks.filter(b => ["A Cabana", "As 5 Linguagens do Amor"].includes(b.title)) },
-  { name: "Carreira & Negócios", books: audiobooks.filter(b => ["Como Convencer Alguém em 90 Segundos", "Mais Esperto que o Diabo"].includes(b.title)) },
-  { name: "Mentalidade", books: audiobooks.filter(b => ["A Tríade do Tempo", "A Rola de Neve"].includes(b.title)) },
-];
+import { categories } from "@/data/audiobooks";
 
 const FeaturedBooks = () => {
   const [selectedAudiobook, setSelectedAudiobook] = useState<typeof audiobooks[0] | null>(null);
@@ -39,7 +33,8 @@ const FeaturedBooks = () => {
         
         {categories.map((category) => (
           <div key={category.name} className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-foreground">{category.name}</h3>
+            <h3 className="text-2xl font-bold mb-2 text-foreground">{category.name}</h3>
+            <p className="text-muted-foreground mb-6 max-w-3xl">{category.description}</p>
             
             <div className="relative group">
               <Button

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroDevices from "@/assets/hero-devices.png";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const Hero = () => {
   const scrollToOffer = () => {
@@ -10,13 +11,18 @@ const Hero = () => {
     <section id="inicio" className="relative bg-gradient-to-b from-background via-background to-card py-20 md:py-32">
       <div className="container px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-          {/* Left Side - Devices Mockup */}
+          {/* Left Side - Video Preview */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative z-10">
-              <img 
-                src={heroDevices}
-                alt="Audiobooks em tablet e smartphone - Biblioteca completa"
-                className="w-full drop-shadow-2xl"
+            <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl">
+              <video 
+                src={heroVideo}
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full"
+                poster={heroDevices}
               />
             </div>
           </div>

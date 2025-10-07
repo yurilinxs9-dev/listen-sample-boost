@@ -122,8 +122,24 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const categories = [
-  { name: "Recomendações", books: audiobooks.slice(0, 4) },
-  { name: "Finanças", books: audiobooks.filter(b => b.category === "Finanças") },
-  { name: "Autoajuda", books: audiobooks.filter(b => b.category === "Autoajuda") },
-  { name: "Investimentos", books: audiobooks.filter(b => b.category === "Investimentos") },
+  { 
+    name: "Recomendações", 
+    description: "Os audiobooks mais transformadores selecionados para você começar sua jornada de crescimento.",
+    books: audiobooks.slice(0, 4) 
+  },
+  { 
+    name: "Finanças", 
+    description: "Domine a psicologia do dinheiro e aprenda a gerir suas finanças com inteligência para alcançar a estabilidade e o sucesso financeiro.",
+    books: audiobooks.filter(b => b.category === "Finanças") 
+  },
+  { 
+    name: "Autoajuda", 
+    description: "Transforme sua mentalidade e desenvolva hábitos poderosos que impulsionam seu crescimento pessoal e profissional.",
+    books: audiobooks.filter(b => b.category === "Autoajuda") 
+  },
+  { 
+    name: "Investimentos", 
+    description: "Explore modalidades de investimentos e insights valiosos para tomar decisões financeiras mais acertadas.",
+    books: audiobooks.filter(b => b.category === "Investimentos") 
+  },
 ];
