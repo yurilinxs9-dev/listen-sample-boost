@@ -25,36 +25,34 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-card to-background">
       <div className="container px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            O Pack Audio Livros Incríveis é a melhor escolha para quem deseja transformar sua mentalidade e alcançar a independência financeira.
-          </h2>
-        </div>
-
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
+          Benefícios Exclusivos
+        </h2>
+        <p className="text-center text-muted-foreground mb-12">
+          Tudo que você precisa para transformar sua vida
+        </p>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="text-center space-y-4 p-6 rounded-xl hover-lift bg-gradient-to-b from-secondary/50 to-white border border-border"
+              className="bg-card p-6 rounded-xl border border-border hover:border-primary/50 transition-all text-center shadow-lg hover:shadow-xl"
             >
-              <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                 <benefit.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="font-bold text-sm uppercase">{benefit.title}</h3>
+              <h3 className="font-bold mb-2 text-foreground">{benefit.title}</h3>
               <p className="text-sm text-muted-foreground">{benefit.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-xl font-bold mb-6">
-            COMPRE AGORA O MELHOR PACK PARA O SEU DESENVOLVIMENTO PESSOAL
-          </p>
+        <div className="text-center">
           <button 
             onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-cta"
+            className="btn-cta text-xl px-12 py-4 rounded-md font-bold uppercase"
           >
             EU QUERO!
           </button>

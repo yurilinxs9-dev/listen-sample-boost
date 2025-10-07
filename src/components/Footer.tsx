@@ -2,25 +2,30 @@ import { Headphones } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer className="bg-background border-t border-border py-12">
       <div className="container px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="flex items-center justify-center gap-2">
-            <Headphones className="w-8 h-8" />
-            <span className="text-2xl font-bold">AudioBooks Premium</span>
-          </div>
+          <h3 className="text-2xl font-bold text-primary">AUDIOBOOKS</h3>
           
-          <p className="text-sm opacity-80">
-            © 2024 AudioBooks Premium. Todos os direitos reservados.
+          <p className="text-muted-foreground">
+            Transforme sua vida através do conhecimento
           </p>
           
-          <div className="flex items-center justify-center gap-6 text-sm opacity-80">
-            <a href="#" className="hover:opacity-100 transition-opacity">Termos de Uso</a>
-            <span>•</span>
-            <a href="#" className="hover:opacity-100 transition-opacity">Política de Privacidade</a>
-            <span>•</span>
-            <a href="#" className="hover:opacity-100 transition-opacity">Contato</a>
+          <div className="flex justify-center gap-6 text-sm">
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              Termos de Uso
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              Política de Privacidade
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              Contato
+            </a>
           </div>
+          
+          <p className="text-sm text-muted-foreground">
+            © 2024 AudioBooks Premium. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>
