@@ -1,4 +1,4 @@
-import { Shield, CheckCircle2, Headphones, BookOpen, Infinity, Sparkles } from "lucide-react";
+import { Shield, CheckCircle2, Headphones, BookOpen, Zap, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Offer = () => {
@@ -40,7 +40,7 @@ const Offer = () => {
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Infinity className="w-6 h-6 text-primary" />
+                    <Zap className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-bold text-xl mb-1 text-foreground">Acesso Vitalício</h3>
