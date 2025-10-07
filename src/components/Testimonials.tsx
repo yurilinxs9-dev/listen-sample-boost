@@ -1,29 +1,50 @@
-import { Card } from "@/components/ui/card";
-import { testimonials } from "@/data/audiobooks";
-import { Quote } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 const Testimonials = () => {
-  return (
-    <section className="py-20 bg-secondary/50">
-      <div className="container px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          O que nossos ouvintes dizem
-        </h2>
+  const testimonials = [
+    {
+      name: "Leonardo V. Castro",
+      message: "Olá! Estamos adorando os audiobooks! Conteúdo de qualidade 👏😊",
+      time: "10:47"
+    },
+    {
+      name: "Luciane S. Lima",
+      message: "Que coleção incrível! Já ouvi 3 livros essa semana 📚🎧",
+      time: "14:23"
+    },
+    {
+      name: "Jackeline M. Oliveira",
+      message: "Perfeito! Escuto no trânsito todos os dias. Recomendo! 🚗",
+      time: "09:15"
+    }
+  ];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+  return (
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            VEJA O QUE NOSSOS LEITORES ESTÃO DIZENDO:
+          </h2>
+        </div>
+
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-6 bg-card border-border hover-scale">
-              <Quote className="w-8 h-8 text-primary mb-4" />
-              <p className="text-sm mb-4">{testimonial.message}</p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="text-sm font-bold text-primary">
-                    {testimonial.user[0]}
-                  </span>
+            <div 
+              key={index}
+              className="bg-[#DCF8C6] rounded-2xl rounded-tl-none p-4 shadow-card hover-lift"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 text-gray-600" />
                 </div>
-                <span className="font-semibold text-sm">{testimonial.user}</span>
+                <div className="flex-1">
+                  <p className="font-semibold text-sm">{testimonial.name}</p>
+                </div>
               </div>
-            </Card>
+              <p className="text-sm mb-2">{testimonial.message}</p>
+              <p className="text-xs text-muted-foreground text-right">{testimonial.time}</p>
+            </div>
           ))}
         </div>
       </div>

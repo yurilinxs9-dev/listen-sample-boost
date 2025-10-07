@@ -67,30 +67,30 @@ const AudioPlayer = ({ audioUrl, title, author, maxDuration = 5 }: AudioPlayerPr
 
   return (
     <>
-      <div className="bg-card border border-border rounded-lg p-4 space-y-3">
+      <div className="bg-secondary/50 rounded-xl p-4 space-y-3 border border-border">
         <div className="flex items-center gap-3">
           <Button
             size="icon"
             onClick={togglePlay}
-            className="rounded-full w-12 h-12 hover-glow"
+            className="rounded-full w-14 h-14 bg-primary hover:bg-primary/90"
           >
-            {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
+            {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-0.5" />}
           </Button>
           
-          <div className="flex-1">
-            <p className="text-sm font-medium">{title}</p>
-            <p className="text-xs text-muted-foreground">{author}</p>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold truncate">{title}</p>
+            <p className="text-xs text-muted-foreground truncate">{author}</p>
           </div>
           
-          <div className="text-xs text-muted-foreground">
-            {currentTime.toFixed(1)}s / {maxDuration}s
+          <div className="text-xs font-medium tabular-nums">
+            {currentTime.toFixed(1)}s
           </div>
         </div>
 
-        <div className="space-y-1">
-          <Progress value={progress} className="h-1" />
+        <div className="space-y-2">
+          <Progress value={progress} className="h-2" />
           <p className="text-xs text-muted-foreground text-center">
-            Preview de {maxDuration} segundos
+            🎧 Preview gratuito de {maxDuration} segundos
           </p>
         </div>
 

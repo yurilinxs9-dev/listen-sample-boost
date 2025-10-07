@@ -1,60 +1,63 @@
-import { Card } from "@/components/ui/card";
-import { Download, Infinity, FileText, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-const benefits = [
-  {
-    icon: Download,
-    title: "Download Ilimitado",
-    description: "Baixe quantos audiobooks quiser e ouça offline, onde e quando quiser."
-  },
-  {
-    icon: Infinity,
-    title: "Acesso Vitalício",
-    description: "Pague uma vez e tenha acesso para sempre. Sem mensalidades ou renovações."
-  },
-  {
-    icon: FileText,
-    title: "Bônus PDFs",
-    description: "Receba materiais complementares em PDF para aprofundar seu aprendizado."
-  },
-  {
-    icon: Sparkles,
-    title: "Atualizações Futuras",
-    description: "Novos livros e recursos adicionados regularmente, sem custo adicional."
-  }
-];
+import { Download, Infinity, FileText, RefreshCw } from "lucide-react";
 
 const Benefits = () => {
-  return (
-    <section className="py-20">
-      <div className="container px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Por que escolher nossa plataforma?
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Oferecemos a melhor experiência em audiobooks com benefícios exclusivos que você não encontra em outros lugares.
-        </p>
+  const benefits = [
+    {
+      icon: Download,
+      title: "DOWNLOAD ILIMITADO",
+      description: "Baixe quantos livros quiser! Você pode baixá-los e ouvir quantas vezes quiser!"
+    },
+    {
+      icon: Infinity,
+      title: "ACESSO VITALÍCIO",
+      description: "Aproveite seu conteúdo para sempre. Acesso sem data de vencimento e sem taxas extras!"
+    },
+    {
+      icon: FileText,
+      title: "+ Bônus 3500 LIVROS EM PDF",
+      description: "Complemento perfeito para comparar textos de áudio. Conteúdo em PDF compatível com qualquer dispositivo!"
+    },
+    {
+      icon: RefreshCw,
+      title: "ATUALIZAÇÕES",
+      description: "Você terá acesso a todas as atualizações futuras. Sempre terá acesso às edições e versões atualizadas!"
+    }
+  ];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {benefits.map((benefit, index) => {
-            const Icon = benefit.icon;
-            return (
-              <Card key={index} className="p-6 bg-card border-border hover-scale text-center">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-                <p className="text-sm text-muted-foreground">{benefit.description}</p>
-              </Card>
-            );
-          })}
+  return (
+    <section className="py-16 bg-white">
+      <div className="container px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            O Pack Audio Livros Incríveis é a melhor escolha para quem deseja transformar sua mentalidade e alcançar a independência financeira.
+          </h2>
         </div>
 
-        <div className="text-center">
-          <Button size="lg" className="hover-glow text-lg px-8 py-6">
-            Eu Quero!
-          </Button>
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {benefits.map((benefit, index) => (
+            <div 
+              key={index}
+              className="text-center space-y-4 p-6 rounded-xl hover-lift bg-gradient-to-b from-secondary/50 to-white border border-border"
+            >
+              <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                <benefit.icon className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-sm uppercase">{benefit.title}</h3>
+              <p className="text-sm text-muted-foreground">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="text-xl font-bold mb-6">
+            COMPRE AGORA O MELHOR PACK PARA O SEU DESENVOLVIMENTO PESSOAL
+          </p>
+          <button 
+            onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
+            className="btn-cta"
+          >
+            EU QUERO!
+          </button>
         </div>
       </div>
     </section>

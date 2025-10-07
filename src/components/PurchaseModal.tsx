@@ -9,43 +9,54 @@ interface PurchaseModalProps {
 }
 
 const PurchaseModal = ({ open, onOpenChange, bookTitle }: PurchaseModalProps) => {
+  const handlePurchase = () => {
+    document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' });
+    onOpenChange(false);
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md bg-white">
         <DialogHeader>
           <div className="flex items-center justify-center mb-4">
-            <Sparkles className="w-12 h-12 text-primary animate-pulse" />
+            <Sparkles className="w-16 h-16 text-primary animate-pulse" />
           </div>
-          <DialogTitle className="text-center text-2xl">Gostou?</DialogTitle>
-          <DialogDescription className="text-center text-base">
-            Continue ouvindo <span className="font-semibold text-foreground">{bookTitle}</span> e tenha acesso ilimitado a todo nosso catálogo!
+          <DialogTitle className="text-center text-3xl font-bold">Gostou? 🎧</DialogTitle>
+          <DialogDescription className="text-center text-lg">
+            Continue ouvindo <span className="font-bold text-primary">{bookTitle}</span> e tenha acesso ilimitado a <span className="font-bold">200+ audiobooks</span>!
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-3 py-4">
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-accent" />
-            <span className="text-sm">Acesso vitalício</span>
+        <div className="space-y-3 py-6 bg-secondary/50 rounded-lg p-4">
+          <div className="flex items-center gap-3">
+            <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
+            <span className="text-sm font-medium">Acesso vitalício a 200+ áudios</span>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-accent" />
-            <span className="text-sm">Download ilimitado</span>
+          <div className="flex items-center gap-3">
+            <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
+            <span className="text-sm font-medium">Download ilimitado</span>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-accent" />
-            <span className="text-sm">Bônus PDFs inclusos</span>
+          <div className="flex items-center gap-3">
+            <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
+            <span className="text-sm font-medium">+ Bônus 3500 livros em PDF</span>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-accent" />
-            <span className="text-sm">Atualizações futuras grátis</span>
+          <div className="flex items-center gap-3">
+            <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
+            <span className="text-sm font-medium">Atualizações futuras grátis</span>
           </div>
         </div>
 
-        <DialogFooter className="flex-col sm:flex-col gap-2">
-          <Button className="w-full hover-glow" size="lg">
-            Eu Quero Agora!
+        <div className="text-center py-4">
+          <p className="text-sm text-muted-foreground line-through">de R$ 397,00</p>
+          <p className="text-4xl font-bold text-primary">R$ 19,90</p>
+          <p className="text-sm text-muted-foreground">pagamento único</p>
+        </div>
+
+        <DialogFooter className="flex-col sm:flex-col gap-3">
+          <Button onClick={handlePurchase} className="w-full btn-cta text-lg py-6 h-auto">
+            QUERO ACESSO COMPLETO AGORA!
           </Button>
-          <Button variant="ghost" onClick={() => onOpenChange(false)} className="w-full">
+          <Button variant="ghost" onClick={() => onOpenChange(false)} className="w-full text-muted-foreground hover:text-foreground">
             Continuar navegando
           </Button>
         </DialogFooter>
