@@ -11,7 +11,7 @@ const Footer = () => {
             Transforme sua vida através do conhecimento
           </p>
           
-          <div className="flex justify-center gap-6 text-sm">
+          <div className="flex justify-center gap-6 text-sm flex-wrap">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
               Termos de Uso
             </a>

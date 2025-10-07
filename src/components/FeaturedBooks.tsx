@@ -1,82 +1,96 @@
 import { useState } from "react";
+import AudiobookCard from "./AudiobookCard";
 import AudioPlayer from "./AudioPlayer";
+import PurchaseModal from "./PurchaseModal";
 import { audiobooks } from "@/data/audiobooks";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "./ui/button";
+
+const categories = [
+  { name: "Finanças", books: audiobooks.filter(b => ["Pai Rico, Pai Pobre", "O Poder do Hábito", "Quem Pensa Enriquece"].includes(b.title)) },
+  { name: "Investimentos", books: audiobooks.filter(b => ["A Psicologia Financeira", "Os Segredos da Mente Milionária"].includes(b.title)) },
+  { name: "Autoajuda", books: audiobooks.filter(b => ["A Cabana", "As 5 Linguagens do Amor"].includes(b.title)) },
+  { name: "Carreira & Negócios", books: audiobooks.filter(b => ["Como Convencer Alguém em 90 Segundos", "Mais Esperto que o Diabo"].includes(b.title)) },
+  { name: "Mentalidade", books: audiobooks.filter(b => ["A Tríade do Tempo", "A Rola de Neve"].includes(b.title)) },
+];
 
 const FeaturedBooks = () => {
-  const [selectedBook, setSelectedBook] = useState<typeof audiobooks[0] | null>(null);
-  const featured = audiobooks.slice(0, 4);
+  const [selectedAudiobook, setSelectedAudiobook] = useState<typeof audiobooks[0] | null>(null);
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
+
+  const handleAudioEnd = () => {
+    setShowPurchaseModal(true);
+  };
+
+  const scrollCarousel = (category: string, direction: 'left' | 'right') => {
+    const carousel = document.getElementById(`carousel-${category}`);
+    if (carousel) {
+      const scrollAmount = direction === 'left' ? -400 : 400;
+      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
-    <section className="py-16 bg-white">
+    <section id="categorias" className="py-16 bg-gradient-to-b from-card to-background">
       <div className="container px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featured.map((book) => (
-              <div 
-                key={book.id}
-                className="group cursor-pointer"
-                onClick={() => setSelectedBook(book)}
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-foreground">
+          Categorias em Destaque
+        </h2>
+        
+        {categories.map((category) => (
+          <div key={category.name} className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-foreground">{category.name}</h3>
+            
+            <div className="relative group">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background opacity-0 group-hover:opacity-100 transition-opacity"
+                onClick={() => scrollCarousel(category.name, 'left')}
               >
-                <div className="relative overflow-hidden rounded-lg shadow-card hover-lift">
-                  <img 
-                    src={book.cover_url}
-                    alt={book.title}
-                    className="w-full aspect-[2/3] object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <div className="text-white">
-                      <p className="text-xs uppercase tracking-wide mb-1">{book.category}</p>
-                      <p className="font-semibold text-sm">Ouvir Preview</p>
-                    </div>
+                <ChevronLeft className="w-8 h-8" />
+              </Button>
+              
+              <div
+                id={`carousel-${category.name}`}
+                className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {category.books.map((book) => (
+                  <div key={book.id} className="flex-shrink-0 w-[180px] md:w-[200px]">
+                    <AudiobookCard
+                      audiobook={book}
+                      onPlay={() => setSelectedAudiobook(book)}
+                    />
                   </div>
-                </div>
-                <div className="mt-3 text-center">
-                  <h3 className="font-bold text-sm mb-1">{book.title}</h3>
-                  <p className="text-xs text-muted-foreground">{book.author}</p>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Audio Player Modal */}
-      {selectedBook && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl p-6 max-w-md w-full shadow-elevated">
-            <div className="flex items-start gap-4 mb-6">
-              <img 
-                src={selectedBook.cover_url}
-                alt={selectedBook.title}
-                className="w-24 h-32 object-cover rounded-lg shadow-card"
-              />
-              <div className="flex-1">
-                <h3 className="font-bold text-lg mb-1">{selectedBook.title}</h3>
-                <p className="text-sm text-muted-foreground mb-2">{selectedBook.author}</p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span>{selectedBook.duration}</span>
-                  <span>•</span>
-                  <span>{selectedBook.category}</span>
-                </div>
-              </div>
+              
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background opacity-0 group-hover:opacity-100 transition-opacity"
+                onClick={() => scrollCarousel(category.name, 'right')}
+              >
+                <ChevronRight className="w-8 h-8" />
+              </Button>
             </div>
-            
-            <AudioPlayer
-              audioUrl={selectedBook.audio_url}
-              title={selectedBook.title}
-              author={selectedBook.author}
-              maxDuration={5}
-            />
-            
-            <button
-              onClick={() => setSelectedBook(null)}
-              className="mt-4 text-sm text-muted-foreground hover:text-foreground transition-colors w-full text-center"
-            >
-              Fechar
-            </button>
           </div>
-        </div>
-      )}
+        ))}
+
+        {selectedAudiobook && (
+          <AudioPlayer
+            audiobook={selectedAudiobook}
+            onClose={() => setSelectedAudiobook(null)}
+            onAudioEnd={handleAudioEnd}
+          />
+        )}
+
+        <PurchaseModal
+          isOpen={showPurchaseModal}
+          onClose={() => setShowPurchaseModal(false)}
+        />
+      </div>
     </section>
   );
 };

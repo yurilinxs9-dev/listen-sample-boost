@@ -1,108 +1,123 @@
 import { useState, useEffect, useRef } from "react";
-import { Play, Pause } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import PurchaseModal from "./PurchaseModal";
+import { Play, Pause, X } from "lucide-react";
+import { Audiobook } from "@/data/audiobooks";
 
 interface AudioPlayerProps {
-  audioUrl: string;
-  title: string;
-  author: string;
-  maxDuration?: number; // in seconds, default 5
+  audiobook: Audiobook;
+  onClose: () => void;
+  onAudioEnd: () => void;
 }
 
-const AudioPlayer = ({ audioUrl, title, author, maxDuration = 5 }: AudioPlayerProps) => {
+const PREVIEW_DURATION = 5; // segundos
+
+const AudioPlayer = ({ audiobook, onClose, onAudioEnd }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+  const [progress, setProgress] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const intervalRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    if (isPlaying) {
-      intervalRef.current = setInterval(() => {
-        setCurrentTime((prev) => {
-          if (prev >= maxDuration) {
-            setIsPlaying(false);
-            setShowModal(true);
-            if (audioRef.current) {
-              audioRef.current.pause();
-              audioRef.current.currentTime = 0;
-            }
-            return 0;
-          }
-          return prev + 0.1;
-        });
-      }, 100);
-    } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    }
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+    const handleTimeUpdate = () => {
+      const time = audio.currentTime;
+      setCurrentTime(time);
+      setProgress((time / PREVIEW_DURATION) * 100);
+
+      if (time >= PREVIEW_DURATION) {
+        audio.pause();
+        setIsPlaying(false);
+        onAudioEnd();
       }
     };
-  }, [isPlaying, maxDuration]);
+
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+    return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
+  }, [onAudioEnd]);
 
   const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        // Reset if at the end
-        if (currentTime >= maxDuration) {
-          setCurrentTime(0);
-          audioRef.current.currentTime = 0;
-        }
-        audioRef.current.play();
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      if (currentTime >= PREVIEW_DURATION) {
+        audioRef.current.currentTime = 0;
+        setCurrentTime(0);
       }
-      setIsPlaying(!isPlaying);
+      audioRef.current.play();
     }
+    setIsPlaying(!isPlaying);
   };
 
-  const progress = (currentTime / maxDuration) * 100;
+  const formatTime = (time: number) => {
+    const seconds = Math.floor(time);
+    return `0:${seconds.toString().padStart(2, '0')}`;
+  };
 
   return (
-    <>
-      <div className="bg-secondary/50 rounded-xl p-4 space-y-3 border border-border">
-        <div className="flex items-center gap-3">
-          <Button
-            size="icon"
-            onClick={togglePlay}
-            className="rounded-full w-14 h-14 bg-primary hover:bg-primary/90"
-          >
-            {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-0.5" />}
-          </Button>
-          
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold truncate">{title}</p>
-            <p className="text-xs text-muted-foreground truncate">{author}</p>
+    <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div className="bg-card border-2 border-primary/30 rounded-2xl shadow-2xl max-w-md w-full p-6 relative">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <X className="w-6 h-6" />
+        </button>
+
+        <div className="text-center">
+          <div className="mb-6">
+            <img
+              src={audiobook.cover_url}
+              alt={`Capa do audiobook ${audiobook.title}`}
+              className="w-48 h-72 object-cover rounded-lg mx-auto shadow-2xl"
+            />
           </div>
-          
-          <div className="text-xs font-medium tabular-nums">
-            {currentTime.toFixed(1)}s
+
+          <h3 className="text-2xl font-bold mb-2 text-foreground">{audiobook.title}</h3>
+          <p className="text-muted-foreground mb-1">{audiobook.author}</p>
+          <p className="text-sm text-muted-foreground mb-6">Preview de 5 segundos</p>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <button
+                onClick={togglePlay}
+                className="w-14 h-14 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full flex items-center justify-center transition-all hover:scale-110 mx-auto shadow-lg"
+              >
+                {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
+              </button>
+            </div>
+
+            <div className="space-y-2">
+              <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                <div
+                  className="bg-primary h-full transition-all duration-100"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+              <div className="flex justify-between text-xs text-muted-foreground">
+                <span>{formatTime(currentTime)}</span>
+                <span>{formatTime(PREVIEW_DURATION)}</span>
+              </div>
+            </div>
           </div>
+
+          {currentTime >= PREVIEW_DURATION && (
+            <div className="mt-6 p-4 bg-accent/10 border border-accent/30 rounded-lg">
+              <p className="text-sm text-foreground">
+                Preview finalizado! Continue ouvindo com acesso completo.
+              </p>
+            </div>
+          )}
         </div>
 
-        <div className="space-y-2">
-          <Progress value={progress} className="h-2" />
-          <p className="text-xs text-muted-foreground text-center">
-            🎧 Preview gratuito de {maxDuration} segundos
-          </p>
-        </div>
-
-        <audio ref={audioRef} src={audioUrl} />
+        <audio
+          ref={audioRef}
+          src={audiobook.audio_url}
+        />
       </div>
-
-      <PurchaseModal
-        open={showModal}
-        onOpenChange={setShowModal}
-        bookTitle={title}
-      />
-    </>
+    </div>
   );
 };
 

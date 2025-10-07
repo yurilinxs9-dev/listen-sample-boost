@@ -1,65 +1,69 @@
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { CheckCircle2 } from "lucide-react";
 
 interface PurchaseModalProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  bookTitle: string;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-const PurchaseModal = ({ open, onOpenChange, bookTitle }: PurchaseModalProps) => {
-  const handlePurchase = () => {
+const PurchaseModal = ({ isOpen, onClose }: PurchaseModalProps) => {
+  const scrollToOffer = () => {
     document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' });
-    onOpenChange(false);
+    onClose();
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md bg-white">
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-md bg-card border-2 border-primary/30">
         <DialogHeader>
-          <div className="flex items-center justify-center mb-4">
-            <Sparkles className="w-16 h-16 text-primary animate-pulse" />
-          </div>
-          <DialogTitle className="text-center text-3xl font-bold">Gostou? 🎧</DialogTitle>
-          <DialogDescription className="text-center text-lg">
-            Continue ouvindo <span className="font-bold text-primary">{bookTitle}</span> e tenha acesso ilimitado a <span className="font-bold">200+ audiobooks</span>!
+          <DialogTitle className="text-2xl font-bold text-center text-foreground">
+            Gostou do Preview? 🎧
+          </DialogTitle>
+          <DialogDescription className="text-center text-lg pt-4 text-muted-foreground">
+            Continue sua jornada e tenha acesso completo a este e mais 199 audiobooks transformadores!
           </DialogDescription>
         </DialogHeader>
+        
+        <div className="space-y-6 py-6">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 p-4 bg-accent/10 rounded-lg border border-accent/30">
+              <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
+              <span className="text-foreground">200+ Audiobooks Best-Sellers</span>
+            </div>
+            
+            <div className="flex items-center gap-3 p-4 bg-accent/10 rounded-lg border border-accent/30">
+              <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
+              <span className="text-foreground">3500+ Livros em PDF de Bônus</span>
+            </div>
+            
+            <div className="flex items-center gap-3 p-4 bg-accent/10 rounded-lg border border-accent/30">
+              <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
+              <span className="text-foreground">Acesso Vitalício</span>
+            </div>
+            
+            <div className="flex items-center gap-3 p-4 bg-accent/10 rounded-lg border border-accent/30">
+              <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
+              <span className="text-foreground">Atualizações Futuras Grátis</span>
+            </div>
+          </div>
 
-        <div className="space-y-3 py-6 bg-secondary/50 rounded-lg p-4">
-          <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
-            <span className="text-sm font-medium">Acesso vitalício a 200+ áudios</span>
+          <div className="text-center bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl border border-primary/30">
+            <p className="text-muted-foreground line-through text-lg mb-1">De R$ 497,00</p>
+            <p className="text-4xl font-bold text-primary mb-2">R$ 19,90</p>
+            <p className="text-accent font-semibold">Oferta por tempo limitado!</p>
           </div>
-          <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
-            <span className="text-sm font-medium">Download ilimitado</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
-            <span className="text-sm font-medium">+ Bônus 3500 livros em PDF</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0" />
-            <span className="text-sm font-medium">Atualizações futuras grátis</span>
-          </div>
+
+          <button 
+            onClick={scrollToOffer}
+            className="btn-cta w-full py-4 rounded-lg font-bold text-lg uppercase"
+          >
+            Quero Acesso Completo Agora
+          </button>
+
+          <p className="text-center text-sm text-muted-foreground">
+            🛡️ Garantia de 7 dias - 100% do seu dinheiro de volta
+          </p>
         </div>
-
-        <div className="text-center py-4">
-          <p className="text-sm text-muted-foreground line-through">de R$ 397,00</p>
-          <p className="text-4xl font-bold text-primary">R$ 19,90</p>
-          <p className="text-sm text-muted-foreground">pagamento único</p>
-        </div>
-
-        <DialogFooter className="flex-col sm:flex-col gap-3">
-          <Button onClick={handlePurchase} className="w-full btn-cta text-lg py-6 h-auto">
-            QUERO ACESSO COMPLETO AGORA!
-          </Button>
-          <Button variant="ghost" onClick={() => onOpenChange(false)} className="w-full text-muted-foreground hover:text-foreground">
-            Continuar navegando
-          </Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

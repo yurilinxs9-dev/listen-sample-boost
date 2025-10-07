@@ -8,44 +8,53 @@ import {
 const FAQ = () => {
   const faqs = [
     {
-      question: "COMO VOU RECEBER MEU ACESSO?",
-      answer: "Você receberá por e-mail ou WhatsApp um link de pagamento. Imediatamente após seu pagamento ser aprovado, diretamente para seu e-mail cadastrado."
+      question: "Como funciona o acesso aos audiobooks?",
+      answer: "Após a compra, você recebe acesso imediato a toda biblioteca de 200+ audiobooks. Pode ouvir online ou fazer download para ouvir offline."
     },
     {
-      question: "POSSO COMPRAR DEPOIS?",
-      answer: "Sim, você pode retornar a qualquer momento. Porém, o investimento atual é promocional e pode sofrer alterações a qualquer momento."
+      question: "O acesso é vitalício mesmo?",
+      answer: "Sim! Você paga apenas uma vez e tem acesso para sempre, incluindo todas as atualizações futuras sem custo adicional."
     },
     {
-      question: "É SEGURO BAIXAR NO DISPOSITIVO?",
-      answer: "Sim! Seu dispositivo é compatível com qualquer dispositivo. Celular, computador, tablet, etc."
+      question: "Posso ouvir em qualquer dispositivo?",
+      answer: "Sim! Funciona em computadores, tablets e smartphones. Compatível com iOS e Android."
+    },
+    {
+      question: "Como funciona a garantia de 7 dias?",
+      answer: "Se por qualquer motivo você não gostar, basta solicitar o reembolso em até 7 dias e devolvemos 100% do valor pago."
+    },
+    {
+      question: "Os PDFs bônus estão inclusos?",
+      answer: "Sim! Você recebe acesso a mais de 3500 livros em PDF como bônus, além dos 200 audiobooks."
     }
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-background to-card">
       <div className="container px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            DÚVIDAS FREQUENTES
-          </h2>
-
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="bg-secondary/50 rounded-lg px-6 border border-border"
-              >
-                <AccordionTrigger className="text-left font-bold hover:no-underline">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
+          Perguntas Frequentes
+        </h2>
+        <p className="text-center text-muted-foreground mb-12">
+          Tire suas dúvidas sobre o acesso
+        </p>
+        
+        <Accordion type="single" collapsible className="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <AccordionItem 
+              key={index} 
+              value={`item-${index}`}
+              className="bg-card border border-border rounded-lg px-6 shadow-md"
+            >
+              <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );
