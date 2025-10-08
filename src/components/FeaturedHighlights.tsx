@@ -1,25 +1,30 @@
+import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre.png";
+import doMilAoMilhao from "@/assets/do-mil-ao-milhao.png";
+import seteHabitos from "@/assets/7-habitos.png";
+import quemPensaEnriquece from "@/assets/quem-pensa-enriquece.png";
+
 const FeaturedHighlights = () => {
   const highlights = [
     {
-      image: "/placeholder.svg",
+      image: paiRicoPaiPobre,
       category: "FINANÇAS",
       description: "Domine a psicologia do dinheiro e aprenda a gerir suas finanças com inteligência para alcançar a estabilidade e o sucesso financeiro.",
       title: "Pai Rico, Pai Pobre"
     },
     {
-      image: "/placeholder.svg",
+      image: doMilAoMilhao,
       category: "INVESTIMENTOS",
       description: "Explore diversas modalidades de investimentos, da renda fixa à variável, além de insights valiosos sobre empreendedorismo para tomar decisões financeiras mais acertadas.",
       title: "Do Mil ao Milhão"
     },
     {
-      image: "/placeholder.svg",
+      image: seteHabitos,
       category: "CARREIRA",
       description: "Aprenda com Stephen Covey sobre proatividade e responsabilidade pessoal para alcançar novos patamares na sua carreira.",
       title: "Os 7 Hábitos das Pessoas Altamente Eficazes"
     },
     {
-      image: "/placeholder.svg",
+      image: quemPensaEnriquece,
       category: "MENTALIDADE",
       description: "Descubra como moldar uma mentalidade de sucesso com livros que inspiram e motivam, como 'Quem Pensa Enriquece'.",
       title: "Quem Pensa Enriquece"
