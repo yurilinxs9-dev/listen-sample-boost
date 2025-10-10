@@ -7,6 +7,7 @@ import Benefits from "@/components/Benefits";
 import Offer from "@/components/Offer";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import StickyCTA from "@/components/StickyCTA";
 
 const Index = () => {
   return (
@@ -30,6 +31,8 @@ const Index = () => {
       </main>
 
       <Footer />
+      
+      <StickyCTA />
     </div>
   );
 };

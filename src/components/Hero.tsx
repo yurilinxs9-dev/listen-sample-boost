@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
           {/* Left Side - Video Preview */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl group">
               <video 
                 src={heroVideo}
                 controls
@@ -21,9 +21,14 @@ const Hero = () => {
                 muted
                 loop
                 playsInline
-                className="w-full"
+                className="w-full hover:scale-105 transition-transform duration-300"
                 poster={heroDevices}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="text-sm md:text-base font-semibold">▶ Assista e descubra como transformar sua vida</p>
+                </div>
+              </div>
             </div>
           </div>
 
