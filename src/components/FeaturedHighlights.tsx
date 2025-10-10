@@ -7,25 +7,21 @@ const FeaturedHighlights = () => {
   const highlights = [
     {
       image: paiRicoPaiPobre,
-      category: "FINANÇAS",
       description: "Domine a psicologia do dinheiro e aprenda a gerir suas finanças com inteligência para alcançar a estabilidade e o sucesso financeiro.",
       title: "Pai Rico, Pai Pobre"
     },
     {
       image: doMilAoMilhao,
-      category: "INVESTIMENTOS",
       description: "Explore diversas modalidades de investimentos, da renda fixa à variável, além de insights valiosos sobre empreendedorismo para tomar decisões financeiras mais acertadas.",
       title: "Do Mil ao Milhão"
     },
     {
       image: seteHabitos,
-      category: "CARREIRA",
       description: "Aprenda com Stephen Covey sobre proatividade e responsabilidade pessoal para alcançar novos patamares na sua carreira.",
       title: "Os 7 Hábitos das Pessoas Altamente Eficazes"
     },
     {
       image: quemPensaEnriquece,
-      category: "MENTALIDADE",
       description: "Descubra como moldar uma mentalidade de sucesso com livros que inspiram e motivam, como 'Quem Pensa Enriquece'.",
       title: "Quem Pensa Enriquece"
     }
@@ -35,7 +31,7 @@ const FeaturedHighlights = () => {
     <section className="py-16 bg-background">
       <div className="container px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-foreground">
-          Categorias em Destaque
+          Recomendações
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -53,9 +49,6 @@ const FeaturedHighlights = () => {
               </div>
               
               <div className="space-y-2">
-                <p className="font-bold text-sm text-primary uppercase tracking-wider">
-                  {item.category}
-                </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
