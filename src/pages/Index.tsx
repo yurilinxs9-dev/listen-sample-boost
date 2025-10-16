@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import BestSellers from "@/components/BestSellers";
 import FeaturedBooks from "@/components/FeaturedBooks";
 import FeaturedHighlights from "@/components/FeaturedHighlights";
 import Testimonials from "@/components/Testimonials";
@@ -15,6 +16,8 @@ const Index = () => {
       
       <main className="pt-16">
         <Hero />
+        
+        <BestSellers />
         
         <FeaturedBooks />
 

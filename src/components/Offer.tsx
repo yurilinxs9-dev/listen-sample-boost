@@ -1,5 +1,5 @@
-import { Shield, CheckCircle2, Headphones, BookOpen, Zap, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Headphones, BookOpen, Zap, Sparkles } from "lucide-react";
+import garantia7Dias from "@/assets/garantia-7-dias.png";
 
 const Offer = () => {
   return (
@@ -68,10 +68,14 @@ const Offer = () => {
             </button>
 
             <div className="text-center mt-8 space-y-4">
-              <div className="flex items-center justify-center gap-3 bg-accent/20 border-2 border-accent/40 rounded-xl p-4">
-                <Shield className="w-8 h-8 text-accent" />
+              <div className="flex items-center justify-center gap-6 bg-accent/20 border-2 border-accent/40 rounded-xl p-6">
+                <img 
+                  src={garantia7Dias} 
+                  alt="Garantia de 7 dias" 
+                  className="w-24 h-24 md:w-32 md:h-32"
+                />
                 <div className="text-left">
-                  <p className="font-bold text-foreground">Garantia de 7 dias</p>
+                  <p className="font-bold text-xl text-foreground">Garantia de 7 dias</p>
                   <p className="text-sm text-muted-foreground">100% do seu dinheiro de volta</p>
                 </div>
               </div>

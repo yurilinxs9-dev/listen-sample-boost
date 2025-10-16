@@ -15,12 +15,21 @@ export interface Testimonial {
   avatar?: string;
 }
 
+import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre.png";
+import oPoderDoHabito from "@/assets/o-poder-do-habito.png";
+import segredosMenteMilionaria from "@/assets/segredos-mente-milionaria.png";
+import investidorInteligente from "@/assets/investidor-inteligente.png";
+import mindset from "@/assets/mindset.png";
+import bolaDeNeve from "@/assets/bola-de-neve.png";
+import rapidoDevagar from "@/assets/rapido-devagar.png";
+import acoesComuns from "@/assets/acoes-comuns.png";
+
 export const audiobooks: Audiobook[] = [
   {
     id: "1",
     title: "Pai Rico, Pai Pobre",
     author: "Robert Kiyosaki",
-    cover_url: "/placeholder.svg",
+    cover_url: paiRicoPaiPobre,
     audio_url: "#",
     duration: "6h 00m",
     category: "Finanças",
@@ -30,7 +39,7 @@ export const audiobooks: Audiobook[] = [
     id: "2",
     title: "O Poder do Hábito",
     author: "Charles Duhigg",
-    cover_url: "/placeholder.svg",
+    cover_url: oPoderDoHabito,
     audio_url: "#",
     duration: "10h 53m",
     category: "Autoajuda",
@@ -40,7 +49,7 @@ export const audiobooks: Audiobook[] = [
     id: "3",
     title: "Os Segredos da Mente Milionária",
     author: "T. Harv Eker",
-    cover_url: "/placeholder.svg",
+    cover_url: segredosMenteMilionaria,
     audio_url: "#",
     duration: "5h 30m",
     category: "Finanças",
@@ -50,7 +59,7 @@ export const audiobooks: Audiobook[] = [
     id: "4",
     title: "O Investidor Inteligente",
     author: "Benjamin Graham",
-    cover_url: "/placeholder.svg",
+    cover_url: investidorInteligente,
     audio_url: "#",
     duration: "15h 23m",
     category: "Investimentos",
@@ -60,7 +69,7 @@ export const audiobooks: Audiobook[] = [
     id: "5",
     title: "Mindset: A Nova Psicologia do Sucesso",
     author: "Carol S. Dweck",
-    cover_url: "/placeholder.svg",
+    cover_url: mindset,
     audio_url: "#",
     duration: "7h 00m",
     category: "Autoajuda",
@@ -70,7 +79,7 @@ export const audiobooks: Audiobook[] = [
     id: "6",
     title: "A Bola de Neve - Warren Buffett",
     author: "Alice Schroeder",
-    cover_url: "/placeholder.svg",
+    cover_url: bolaDeNeve,
     audio_url: "#",
     duration: "34h 00m",
     category: "Investimentos",
@@ -80,7 +89,7 @@ export const audiobooks: Audiobook[] = [
     id: "7",
     title: "Rápido e Devagar",
     author: "Daniel Kahneman",
-    cover_url: "/placeholder.svg",
+    cover_url: rapidoDevagar,
     audio_url: "#",
     duration: "20h 00m",
     category: "Autoajuda",
@@ -90,7 +99,7 @@ export const audiobooks: Audiobook[] = [
     id: "8",
     title: "Ações Comuns, Lucros Extraordinários",
     author: "Philip Fisher",
-    cover_url: "/placeholder.svg",
+    cover_url: acoesComuns,
     audio_url: "#",
     duration: "8h 15m",
     category: "Investimentos",

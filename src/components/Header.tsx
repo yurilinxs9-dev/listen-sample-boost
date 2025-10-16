@@ -7,7 +7,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
             <h1 className="text-2xl md:text-3xl font-bold text-primary">
-              AUDIOBOOKS
+              RendaCast
             </h1>
             <nav className="hidden md:flex items-center gap-6">
               <a href="#inicio" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
