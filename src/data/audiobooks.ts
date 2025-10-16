@@ -1,8 +1,3 @@
-import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre.png";
-import doMilAoMilhao from "@/assets/do-mil-ao-milhao.png";
-import seteHabitos from "@/assets/7-habitos.png";
-import quemPensaEnriquece from "@/assets/quem-pensa-enriquece.png";
-
 export interface Audiobook {
   id: string;
   title: string;
@@ -25,7 +20,7 @@ export const audiobooks: Audiobook[] = [
     id: "1",
     title: "Pai Rico, Pai Pobre",
     author: "Robert Kiyosaki",
-    cover_url: paiRicoPaiPobre,
+    cover_url: "/placeholder.svg",
     audio_url: "#",
     duration: "6h 00m",
     category: "Finanças",
@@ -35,7 +30,7 @@ export const audiobooks: Audiobook[] = [
     id: "2",
     title: "O Poder do Hábito",
     author: "Charles Duhigg",
-    cover_url: seteHabitos,
+    cover_url: "/placeholder.svg",
     audio_url: "#",
     duration: "10h 53m",
     category: "Autoajuda",
@@ -45,7 +40,7 @@ export const audiobooks: Audiobook[] = [
     id: "3",
     title: "Os Segredos da Mente Milionária",
     author: "T. Harv Eker",
-    cover_url: quemPensaEnriquece,
+    cover_url: "/placeholder.svg",
     audio_url: "#",
     duration: "5h 30m",
     category: "Finanças",
@@ -55,7 +50,7 @@ export const audiobooks: Audiobook[] = [
     id: "4",
     title: "O Investidor Inteligente",
     author: "Benjamin Graham",
-    cover_url: doMilAoMilhao,
+    cover_url: "/placeholder.svg",
     audio_url: "#",
     duration: "15h 23m",
     category: "Investimentos",
@@ -65,7 +60,7 @@ export const audiobooks: Audiobook[] = [
     id: "5",
     title: "Mindset: A Nova Psicologia do Sucesso",
     author: "Carol S. Dweck",
-    cover_url: paiRicoPaiPobre,
+    cover_url: "/placeholder.svg",
     audio_url: "#",
     duration: "7h 00m",
     category: "Autoajuda",
@@ -75,7 +70,7 @@ export const audiobooks: Audiobook[] = [
     id: "6",
     title: "A Bola de Neve - Warren Buffett",
     author: "Alice Schroeder",
-    cover_url: doMilAoMilhao,
+    cover_url: "/placeholder.svg",
     audio_url: "#",
     duration: "34h 00m",
     category: "Investimentos",
@@ -85,7 +80,7 @@ export const audiobooks: Audiobook[] = [
     id: "7",
     title: "Rápido e Devagar",
     author: "Daniel Kahneman",
-    cover_url: seteHabitos,
+    cover_url: "/placeholder.svg",
     audio_url: "#",
     duration: "20h 00m",
     category: "Autoajuda",
@@ -95,7 +90,7 @@ export const audiobooks: Audiobook[] = [
     id: "8",
     title: "Ações Comuns, Lucros Extraordinários",
     author: "Philip Fisher",
-    cover_url: quemPensaEnriquece,
+    cover_url: "/placeholder.svg",
     audio_url: "#",
     duration: "8h 15m",
     category: "Investimentos",
@@ -131,20 +126,5 @@ export const categories = [
     name: "Recomendações", 
     description: "Os audiobooks mais transformadores selecionados para você começar sua jornada de crescimento.",
     books: audiobooks.slice(0, 4) 
-  },
-  { 
-    name: "Finanças", 
-    description: "Domine a psicologia do dinheiro e aprenda a gerir suas finanças com inteligência para alcançar a estabilidade e o sucesso financeiro.",
-    books: audiobooks.filter(b => b.category === "Finanças") 
-  },
-  { 
-    name: "Autoajuda", 
-    description: "Transforme sua mentalidade e desenvolva hábitos poderosos que impulsionam seu crescimento pessoal e profissional.",
-    books: audiobooks.filter(b => b.category === "Autoajuda") 
-  },
-  { 
-    name: "Investimentos", 
-    description: "Explore modalidades de investimentos e insights valiosos para tomar decisões financeiras mais acertadas.",
-    books: audiobooks.filter(b => b.category === "Investimentos") 
-  },
+  }
 ];

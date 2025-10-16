@@ -23,47 +23,24 @@ const Offer = () => {
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-10">
               {[
-                { 
-                  icon: Headphones, 
-                  title: "200+ Audiobooks", 
-                  description: "Best-sellers em desenvolvimento pessoal e financeiro",
-                  details: "Inclui: Pai Rico Pai Pobre, O Poder do Hábito, Mindset e muito mais"
-                },
-                { 
-                  icon: BookOpen, 
-                  title: "3500+ PDFs Bônus", 
-                  description: "Biblioteca digital completa de finanças, negócios e autodesenvolvimento",
-                  details: "Acesso a livros clássicos e contemporâneos em formato PDF"
-                },
-                { 
-                  icon: Zap, 
-                  title: "Acesso Vitalício", 
-                  description: "Pague uma vez e use para sempre",
-                  details: "Sem mensalidades, sem taxas recorrentes"
-                },
-                { 
-                  icon: Sparkles, 
-                  title: "Atualizações Grátis", 
-                  description: "Novos audiobooks e PDFs adicionados mensalmente",
-                  details: "Sua biblioteca cresce sem custo adicional"
-                }
+                { icon: Headphones, title: "200+ Audiobooks", description: "Best-sellers transformadores" },
+                { icon: BookOpen, title: "3500+ PDFs Bônus", description: "Biblioteca completa" },
+                { icon: Zap, title: "Acesso Vitalício", description: "Use para sempre" },
+                { icon: Sparkles, title: "Atualizações Grátis", description: "Novos conteúdos mensais" }
               ].map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
                   <div 
                     key={index}
-                    className="flex flex-col gap-3 bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl border-2 border-primary/30 hover:border-primary/50 transition-all shadow-lg group hover:scale-105"
+                    className="flex items-center gap-4 bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl border-2 border-primary/30 hover:border-primary/50 transition-all shadow-lg"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                        <Icon className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg text-foreground">{benefit.title}</h3>
-                        <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                      </div>
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <p className="text-xs text-muted-foreground/80 pl-[72px]">{benefit.details}</p>
+                    <div>
+                      <h3 className="font-bold text-lg text-foreground">{benefit.title}</h3>
+                      <p className="text-muted-foreground">{benefit.description}</p>
+                    </div>
                   </div>
                 );
               })}
