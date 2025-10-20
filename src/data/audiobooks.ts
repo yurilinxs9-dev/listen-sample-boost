@@ -15,15 +15,15 @@ export interface Testimonial {
   avatar?: string;
 }
 
-// Capas oficiais dos livros em alta resolução
-import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre.png";
-import oPoderDoHabito from "@/assets/o-poder-do-habito.png";
-import segredosMenteMilionaria from "@/assets/segredos-mente-milionaria.png";
-import investidorInteligente from "@/assets/investidor-inteligente.png";
-import mindset from "@/assets/mindset.png";
-import bolaDeNeve from "@/assets/bola-de-neve.png";
-import rapidoDevagar from "@/assets/rapido-devagar.png";
-import acoesComuns from "@/assets/acoes-comuns.png";
+// Capas oficiais dos livros em alta resolução da Amazon
+import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre-oficial.png";
+import oPoderDoHabito from "@/assets/o-poder-do-habito-oficial.png";
+import segredosMenteMilionaria from "@/assets/segredos-mente-milionaria-oficial.png";
+import investidorInteligente from "@/assets/investidor-inteligente-oficial.png";
+import mindset from "@/assets/mindset-oficial.png";
+import bolaDeNeve from "@/assets/bola-de-neve-oficial.png";
+import rapidoDevagar from "@/assets/rapido-devagar-oficial.png";
+import acoesComuns from "@/assets/acoes-comuns-oficial.png";
 
 export const audiobooks: Audiobook[] = [
   {
