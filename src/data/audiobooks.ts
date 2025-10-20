@@ -15,6 +15,7 @@ export interface Testimonial {
   avatar?: string;
 }
 
+// Capas oficiais dos livros em alta resolução
 import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre.png";
 import oPoderDoHabito from "@/assets/o-poder-do-habito.png";
 import segredosMenteMilionaria from "@/assets/segredos-mente-milionaria.png";
