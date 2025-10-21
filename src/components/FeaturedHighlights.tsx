@@ -1,4 +1,4 @@
-import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre.png";
+import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre-oficial.png";
 import doMilAoMilhao from "@/assets/do-mil-ao-milhao.png";
 import seteHabitos from "@/assets/7-habitos.png";
 import quemPensaEnriquece from "@/assets/quem-pensa-enriquece.png";
