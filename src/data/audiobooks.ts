@@ -15,13 +15,13 @@ export interface Testimonial {
   avatar?: string;
 }
 
-// Capas oficiais dos livros em alta resolução da Amazon
-import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre-oficial.png";
-import oPoderDoHabito from "@/assets/o-poder-do-habito-oficial.png";
-import segredosMenteMilionaria from "@/assets/segredos-mente-milionaria-oficial.png";
-import investidorInteligente from "@/assets/investidor-inteligente-oficial.png";
-import mindset from "@/assets/mindset-oficial.png";
-import bolaDeNeve from "@/assets/bola-de-neve-oficial.png";
+// Capas reais dos livros
+import paiRicoPaiPobre from "@/assets/pai-rico-pai-pobre-real.webp";
+import oPoderDoHabito from "@/assets/o-poder-do-habito-real.jpeg";
+import segredosMenteMilionaria from "@/assets/segredos-mente-milionaria-real.jpeg";
+import investidorInteligente from "@/assets/investidor-inteligente-real.jpeg";
+import mindset from "@/assets/mindset-real.jpeg";
+import bolaDeNeve from "@/assets/bola-de-neve-real.jpeg";
 import rapidoDevagar from "@/assets/rapido-devagar-oficial.png";
 import acoesComuns from "@/assets/acoes-comuns-oficial.png";
 
