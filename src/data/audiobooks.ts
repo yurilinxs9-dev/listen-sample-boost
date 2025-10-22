@@ -22,8 +22,6 @@ import segredosMenteMilionaria from "@/assets/segredos-mente-milionaria-real.jpe
 import investidorInteligente from "@/assets/investidor-inteligente-real.jpeg";
 import mindset from "@/assets/mindset-real.jpeg";
 import bolaDeNeve from "@/assets/bola-de-neve-real.jpeg";
-import rapidoDevagar from "@/assets/rapido-devagar-oficial.png";
-import acoesComuns from "@/assets/acoes-comuns-oficial.png";
 
 export const audiobooks: Audiobook[] = [
   {
@@ -85,26 +83,6 @@ export const audiobooks: Audiobook[] = [
     duration: "34h 00m",
     category: "Investimentos",
     description: "A biografia definitiva de Warren Buffett."
-  },
-  {
-    id: "7",
-    title: "Rápido e Devagar",
-    author: "Daniel Kahneman",
-    cover_url: rapidoDevagar,
-    audio_url: "#",
-    duration: "20h 00m",
-    category: "Autoajuda",
-    description: "Duas formas de pensar que moldam nossas decisões."
-  },
-  {
-    id: "8",
-    title: "Ações Comuns, Lucros Extraordinários",
-    author: "Philip Fisher",
-    cover_url: acoesComuns,
-    audio_url: "#",
-    duration: "8h 15m",
-    category: "Investimentos",
-    description: "Estratégias de investimento a longo prazo."
   }
 ];
 
